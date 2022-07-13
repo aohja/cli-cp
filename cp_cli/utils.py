@@ -1,6 +1,7 @@
 from datetime import datetime
 import re
 import json
+import os
 
 author = "Aadi Ohja"
 
@@ -8,7 +9,7 @@ author = "Aadi Ohja"
 Template file setup
 """
 
-TEMPLATE_PATH = "../templates/template.cpp"
+# TEMPLATE_PATH = "template.cpp"
 
 def get_header(problem_name):
     author_line = f" * Author:  {author}\n"
@@ -21,9 +22,9 @@ def get_header(problem_name):
 
 
 def create_template(filename, problem_name):
-    f = open(filename, "a")
+    f = open(f"{filename}.cpp", "a")
     f.write(get_header(problem_name))
-    with open(TEMPLATE_PATH, 'r') as sol:
+    with open(os.path.join(os.path.split(os.path.dirname(__file__))[0], 'templates', 'template.cpp'),"r") as sol:
         f.write(sol.read())
     return
 

@@ -15,7 +15,7 @@ def build(problem):
     return 0
 
 
-def output(test_case, result, answer, runtime):
+def output(test_case, input_file, result, answer, runtime):
     verdict = (result.stdout == answer.stdout)
     outcome = ""
     if (verdict):
@@ -25,10 +25,13 @@ def output(test_case, result, answer, runtime):
     print(f"Sample {test_case}: {outcome} ({runtime * 1000} ms)")
     if (not verdict):
         print("--------------------------------------------------------------------------------------------")
+        print("Input")
+        sample = subprocess.run(f"cat ./in/{input_file}", capture_output=True)
+        print(sample.stdout.decode("utf-8"))
         print("Expected Output")
-        print(answer.stdout)
+        print(answer.stdout.decode("utf-8"))
         print("User Output")
-        print(result.stdout)
+        print(result.stdout.decode("utf-8"))
         print("--------------------------------------------------------------------------------------------")
     return verdict
 
@@ -40,7 +43,7 @@ def run_one(problem, input_file, output_file, test_case):
     runtime = time.time() - start
     cmd = f"cat ./out/{output_file}"
     answer = subprocess.run(cmd, shell=True, capture_output=True)
-    return output(test_case, result, answer, runtime)
+    return output(test_case, input_file, result, answer, runtime)
 
 
 @click.command()
