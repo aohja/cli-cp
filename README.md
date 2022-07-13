@@ -1,5 +1,6 @@
-A commmand line competitive programming helper. 
-It is still extremeley unpolished and lacks many essential features, so it might be better to use this project as an inspiration for your own command line helper.
+A commmand line competitive programming helper.
+It is still extremeley unpolished and lacks many essential features
+In fact, there are no guarentees yet that it will even work on your computer, so it might be better to use this project as an inspiration for your own command line helper.
 
 Much of the program is derived from the following works:
 
