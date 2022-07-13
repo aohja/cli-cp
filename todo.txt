@@ -1,0 +1,5 @@
+1) Carry out extensive testing
+2) Add colors to the results
+3) Write proper documentation on how to set up this tool.
+4) Add a debug mode with extra flags and more content printed.
+5) Add a submission feature
